@@ -10,44 +10,40 @@ sólo de los alumnos aprobados)
 */
 
 #include <stdio.h>
-#include <stdbool.h>
 
 int main()
 {
-
-        bool run = true;
-        int apr = 0;
-        int repr = 0;
+        float apr = 0;
+        float repr = 0;
+        float promedio = 0;
         int i = 0;
-        char letra[1];
+        char letra;
         do
         {
-                if (i % 2 == 0)
+                printf("\nIntroduce S para continuar, otra tecla para salir: ");
+                scanf("%s", &letra);
+                if (letra == 'S')
                 {
-                        printf("Introduce S para continuar: ");
-                        scanf("%c", &letra);
-                        if (letra == "S\0" || letra == "S\v" || letra == "S " || *letra == 'S')
+                        float cal;
+                        printf("\nCalificación del Alumno: ");
+                        scanf("%f", &cal);
+                        if (cal >= 4)
                         {
-                                printf("Calificación del Alumno: ");
-                                float cal;
-                                scanf("%f", &cal);
-                                if (cal >= 4)
-                                        apr++;
-                                else
-                                        repr++;
+                                apr++;
+                                promedio += cal;
+                                i++;
+                                printf("\nAprobado");
                         }
                         else
                         {
-                                run = false;
+                                repr++;
+                                printf("\nReprobado");
                         }
                 }
-                else
-                {
-                        letra[1] = 'S';
-                }
-                i++;
-        } while (run);
-        // printf("\n %f", apr / (apr + repr));
+        } while (letra == 'S');
+        promedio /= i;
+        printf("\n Porcentaje de Alumnos Aprovados: %f%%", apr / (apr + repr) * 100);
+        printf("\n Promedio de Estudiantes Aprovados: %f", promedio);
         printf("\nPresiona ENTER para salir...");
         getchar();
         getchar();

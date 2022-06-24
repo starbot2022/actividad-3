@@ -1,6 +1,10 @@
+/*
+Escribir un programa que, dado un número entero por el usuario (guardado
+como int), muestre la suma de todos sus dígitos
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int main()
 {
@@ -11,7 +15,7 @@ int main()
         scanf("%s", &num);
         int sum = 0;
         int i = 0;
-        while (num[i] != ' ' && num[i] != '\0' && num[i] != '\v')
+        while (num[i] != '\0')
         {
                 char caracter[2];
                 caracter[0] = num[i];

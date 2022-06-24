@@ -9,7 +9,6 @@ el usuario.
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int main()
 {
@@ -18,16 +17,14 @@ int main()
     int multiplos = 0;
     do
     {
-        printf("\nIngrese un numero positivo: ");
+        printf("Ingrese un numero positivo: ");
         scanf("%s", &temp);
         int even = 0;
         int odd = 0;
         int i = 0;
-        while (temp[i] != ' ' && temp[i] != '\0' && temp[i] != '\v' && atoi(temp) != -1)
+        while (temp[i] != '\0' && atoi(temp) != -1)
         {
-            char caracter[2];
-            caracter[0] = temp[i];
-            caracter[1] = '\0';
+            char caracter[2] = {temp[i], '\0'};
             int num = atoi(caracter);
             if (num % 2 != 0)
                 odd++;
